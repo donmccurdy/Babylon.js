@@ -6,6 +6,17 @@ import { Tools } from "./tools";
 
 declare var KTX2DECODER: any;
 
+interface IURLConfig {
+    jsDecoderModule: string;
+    wasmUASTCToASTC: string | null;
+    wasmUASTCToBC7: string | null;
+    wasmUASTCToRGBA_UNORM: string | null;
+    wasmUASTCToRGBA_SRGB: string | null;
+    jsMSCTranscoder: string | null;
+    wasmMSCTranscoder: string | null;
+    wasmZSTDDecoder: string | null;
+}
+
 /**
  * Class for loading KTX2 files
  */
@@ -30,7 +41,7 @@ export class KhronosTextureContainer2 {
      *     URLConfig.wasmZSTDDecoder
      * You can see their default values in this PG: https://playground.babylonjs.com/#EIJH8L#29
      */
-    public static URLConfig = {
+    public static URLConfig: IURLConfig = {
         jsDecoderModule: "https://preview.babylonjs.com/babylon.ktx2Decoder.js",
         wasmUASTCToASTC: null,
         wasmUASTCToBC7: null,
